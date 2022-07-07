@@ -13,7 +13,7 @@ exports[`matches snapshot 1`] = `
   <p
     data-testid="navbarDescription"
   >
-    lorem ipsum lorem ipsum lorem ipsum
+    welcome to todolist with typescript and jest
   </p>
 </nav>
 `;
