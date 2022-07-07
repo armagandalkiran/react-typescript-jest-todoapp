@@ -1,5 +1,13 @@
-*,*::after,*::before{
-    box-sizing: border-box;
-    margin:0;
-    padding:0;
+$primary: #ed7d3a;
+$secondary: #2fbf71;
+$typography: #363537;
+$error: #ef2d56;
+$success: #8cd867;
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
