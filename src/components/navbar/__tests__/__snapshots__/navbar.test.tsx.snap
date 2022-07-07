@@ -6,11 +6,13 @@ exports[`matches snapshot 1`] = `
   data-testid="navbar"
 >
   <h1
+    className="navbarTitle"
     data-testid="navbarTitle"
   >
     My ToDo list
   </h1>
   <p
+    className="navbarDescription"
     data-testid="navbarDescription"
   >
     welcome to todolist with typescript and jest
