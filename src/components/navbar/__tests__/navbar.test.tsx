@@ -1,4 +1,6 @@
 import { render, screen, cleanup } from "@testing-library/react";
+import renderer from "react-test-renderer";
+import { navbarItems } from "../../../models/constants";
 import { Navbar } from "../navbar";
 
 afterEach(() => {
@@ -11,6 +13,11 @@ test("should render navbar component", () => {
   const navbarTitleElement = screen.getByTestId("navbarTitle");
   const navbarDescriptionElement = screen.getByTestId("navbarDescription")
   expect(navbarElement).toBeInTheDocument();
-  expect(navbarTitleElement ).toHaveTextContent("My ToDo list");
-  expect(navbarDescriptionElement ).toHaveTextContent("lorem ipsum lorem ipsum lorem ipsum");
+  expect(navbarTitleElement ).toHaveTextContent(navbarItems["title"]);
+  expect(navbarDescriptionElement ).toHaveTextContent(navbarItems["description"]);
 });
+
+test("matches snapshot", () => {
+  const tree = renderer.create(<Navbar/>).toJSON();
+  expect(tree).toMatchSnapshot()
+})

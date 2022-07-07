@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<nav
+  className="navbarContainer"
+  data-testid="navbar"
+>
+  <h1
+    data-testid="navbarTitle"
+  >
+    My ToDo list
+  </h1>
+  <p
+    data-testid="navbarDescription"
+  >
+    lorem ipsum lorem ipsum lorem ipsum
+  </p>
+</nav>
+`;
