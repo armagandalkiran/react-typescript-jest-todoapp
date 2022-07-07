@@ -1,4 +1,4 @@
 export const navbarItems = {
     title:"My ToDo list",
-    description:"lorem ipsum lorem ipsum lorem ipsum"
+    description:"welcome to todolist with typescript and jestu"
 }
