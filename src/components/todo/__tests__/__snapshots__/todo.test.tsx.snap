@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ToDo tests matches snapshot 1`] = `
+<div
+  className="todoContainer"
+>
+  <div
+    className="todoEntryWrapper"
+  >
+    <input
+      data-testid="input"
+      onChange={[Function]}
+      value=""
+    />
+    <button
+      data-testid="button"
+      onClick={[Function]}
+    >
+      +
+    </button>
+  </div>
+  <br />
+  <ul>
+    <li>
+      default 1
+    </li>
+    <li>
+      default 2
+    </li>
+    <li>
+      default 3
+    </li>
+  </ul>
+</div>
+`;

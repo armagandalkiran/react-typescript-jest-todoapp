@@ -1,11 +1,15 @@
 import React from "react";
-import { Navbar } from "./components/navbar";
 import "./common.scss";
+import { Navbar } from "./components/navbar";
+import { ToDo } from "./components/todo";
 
 function App() {
-  return <>
-    <Navbar/>
-  </>;
+  return (
+    <>
+      <Navbar />
+      <ToDo />
+    </>
+  );
 }
 
 export default App;
