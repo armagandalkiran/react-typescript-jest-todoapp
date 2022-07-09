@@ -1,6 +1,8 @@
+@import "../../common.scss";
+
 .todoContainer {
-  width: 100%;
   padding: 20px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -8,21 +10,125 @@
 
 .todoContent {
   width: 60%;
+  @include respond(phone) {
+    width: 95%;
+  }
 }
 
 .todoEntryWrapper {
-  width:100%;
+  width: 100%;
   display: flex;
 }
 
-.todoInput{
-  width:80%;
+.todoInput {
+  padding: 10px;
+  width: 80%;
+  border: 1px solid $typography;
+  &:focus {
+    outline: none !important;
+    border: 1px solid $typography;
+  }
+  @include respond(phone) {
+    padding: 5px;
+  }
 }
 
-.todoButton{
-  width:20%;
+.todoButton {
+  width: 15%;
+  margin-left: 5%;
+  border: none;
+  border-radius: 6px;
+  background-color: $secondary;
+  color: white;
+  filter: drop-shadow(0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.5));
+  transition: 0.5s ease-in-out;
+  &:hover {
+    background-color: $light-secondary;
+    cursor: pointer;
+  }
 }
 
 .todoErrorMessage {
-  color: red;
+  width: 80%;
+  font-size: 0.9rem;
+  color: $error;
+  @include respond(phone) {
+    font-size: 0.7rem;
+  }
+}
+
+.todoListContainer {
+  width: 80%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  @include respond(phone) {
+    padding: 10px 0;
+  }
+}
+
+.todoListItem {
+  width: 100%;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  &:hover {
+    .todoActionsDelete {
+      opacity: 1;
+    }
+  }
+}
+
+.todoTaskChecked {
+  max-width: 80%;
+  text-decoration: line-through;
+  // @include respond(phone) {
+  //   max-width: 80%;
+  // }
+}
+
+.todoTaskNotChecked {
+  max-width: 80%;
+  text-decoration: none;
+  // @include respond(phone) {
+  //   max-width: 80%;
+  // }
+}
+
+.todoActionsContainer {
+  width: 20%;
+  // @include respond(phone) {
+  //   width: 10%;
+  // }
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.todoActionsDelete {
+  // width:20px;
+  height: 13px;
+  width: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $error;
+  border: none;
+  color: white;
+  filter: drop-shadow(0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.5));
+  &:hover {
+    cursor: pointer;
+  }
+  opacity: 0;
+  @include respond(phone) {
+    opacity: 1;
+  }
+  transition: 0.2s ease-in-out;
+  // @include respond(phone){
+  //   width:5%;
+  // }
+}
+
+.todoActionsCheckbox {
 }

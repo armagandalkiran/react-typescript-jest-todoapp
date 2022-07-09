@@ -1,8 +1,10 @@
+@import "mixins";
+
 $primary: #ed7d3a;
 $secondary: #2fbf71;
+$light-secondary: #8cd867;
 $typography: #363537;
 $error: #ef2d56;
-$success: #8cd867;
 
 *,
 *::after,
@@ -12,6 +14,23 @@ $success: #8cd867;
   padding: 0;
 }
 
-html,body{
-  width:100%;
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+p {
+  font-size: 1rem;
+  word-wrap: break-word;
+  @include respond(phone) {
+    font-size: 0.8rem;
+  }
+}
+
+html,
+body {
+  width: 100%;
 }
