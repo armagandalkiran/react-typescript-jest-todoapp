@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { defaultValues, defaultFormInput } from "../../models/constants";
 import { validations } from "../../models/constants";
-import { Results } from "../../models/interfaces";
+import { Results, ToDoItems } from "../../models/interfaces";
 
 import "./todo.scss";
 
@@ -13,9 +13,6 @@ export const ToDo = () => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const updatedValue = e.target.value;
     setText(updatedValue);
-    if (validations.isNull(text, "Text input can't be empty")) {
-      setError("");
-    }
   };
 
   const handleError = (results: object) => {
@@ -25,6 +22,18 @@ export const ToDo = () => {
     }
   };
 
+  const handleCheckbox = (data: ToDoItems) => {
+    let items = [...tasks];
+    let itemIndex = items.indexOf(data);
+    let item = items[itemIndex];
+    item.completed = !data.completed;
+    setTasks(items);
+  };
+
+  const handleDelete = (data: ToDoItems) => {
+    setTasks(tasks.filter((task) => task !== data));
+  };
+
   const addTask = () => {
     const status = validations.isNull(
       text,
@@ -32,6 +41,7 @@ export const ToDo = () => {
     );
     if (status) {
       setTasks((prev) => [...prev, { task: text, completed: false }]);
+      setError("");
     } else {
       if (validations.results) {
         handleError(validations.results);
@@ -50,20 +60,42 @@ export const ToDo = () => {
       <div className="todoContent">
         <div className="todoEntryWrapper">
           <input
+            type="text"
             className="todoInput"
             data-testid="input"
             value={text}
             onChange={(e) => handleChange(e)}
           />
           <button className="todoButton" data-testid="button" onClick={addTask}>
-            +
+            Ekle
           </button>
         </div>
         <div>{displayError()}</div>
-        <br />
-        <ul>
+        <ul className="todoListContainer">
           {tasks.map((data, idx) => (
-            <li key={idx}>{data.task}</li>
+            <li className="todoListItem" key={idx}>
+              <p
+                className={`${
+                  data.completed ? "todoTaskChecked" : "todoTaskNotChecked"
+                }`}
+              >
+                {data.task}
+              </p>
+              <div className="todoActionsContainer">
+                <input
+                  className="todoCheckbox"
+                  type="checkbox"
+                  checked={data.completed}
+                  onChange={() => handleCheckbox(data)}
+                />
+                <button
+                  onClick={() => handleDelete(data)}
+                  className="todoActionsDelete"
+                >
+                  -
+                </button>
+              </div>
+            </li>
           ))}
         </ul>
       </div>

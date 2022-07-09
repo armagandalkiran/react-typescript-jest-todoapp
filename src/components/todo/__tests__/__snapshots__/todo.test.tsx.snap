@@ -14,6 +14,7 @@ exports[`ToDo tests matches snapshot 1`] = `
         className="todoInput"
         data-testid="input"
         onChange={[Function]}
+        type="text"
         value=""
       />
       <button
@@ -21,20 +22,87 @@ exports[`ToDo tests matches snapshot 1`] = `
         data-testid="button"
         onClick={[Function]}
       >
-        +
+        Ekle
       </button>
     </div>
     <div />
-    <br />
-    <ul>
-      <li>
-        default 1
+    <ul
+      className="todoListContainer"
+    >
+      <li
+        className="todoListItem"
+      >
+        <p
+          className="todoTaskChecked"
+        >
+          default 1
+        </p>
+        <div
+          className="todoActionsContainer"
+        >
+          <input
+            checked={true}
+            className="todoCheckbox"
+            onChange={[Function]}
+            type="checkbox"
+          />
+          <button
+            className="todoActionsDelete"
+            onClick={[Function]}
+          >
+            -
+          </button>
+        </div>
       </li>
-      <li>
-        default 2
+      <li
+        className="todoListItem"
+      >
+        <p
+          className="todoTaskNotChecked"
+        >
+          default 2
+        </p>
+        <div
+          className="todoActionsContainer"
+        >
+          <input
+            checked={false}
+            className="todoCheckbox"
+            onChange={[Function]}
+            type="checkbox"
+          />
+          <button
+            className="todoActionsDelete"
+            onClick={[Function]}
+          >
+            -
+          </button>
+        </div>
       </li>
-      <li>
-        default 3
+      <li
+        className="todoListItem"
+      >
+        <p
+          className="todoTaskNotChecked"
+        >
+          default 3
+        </p>
+        <div
+          className="todoActionsContainer"
+        >
+          <input
+            checked={false}
+            className="todoCheckbox"
+            onChange={[Function]}
+            type="checkbox"
+          />
+          <button
+            className="todoActionsDelete"
+            onClick={[Function]}
+          >
+            -
+          </button>
+        </div>
       </li>
     </ul>
   </div>

@@ -12,4 +12,7 @@
 
 .navbarDescription{
     color: $typography;
+    // @include respond(phone){
+    //     color:red;
+    // }
 }
