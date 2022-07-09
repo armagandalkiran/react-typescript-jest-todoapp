@@ -1,8 +1,28 @@
 .todoContainer {
+  width: 100%;
   padding: 20px;
-  display: grid;
-  place-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.todoContent {
+  width: 60%;
 }
 
 .todoEntryWrapper {
+  width:100%;
+  display: flex;
+}
+
+.todoInput{
+  width:80%;
+}
+
+.todoButton{
+  width:20%;
+}
+
+.todoErrorMessage {
+  color: red;
 }
