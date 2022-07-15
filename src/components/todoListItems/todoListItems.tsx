@@ -1,4 +1,5 @@
 import { ToDoItems, TodoList } from "../../models/interfaces";
+import { deleteButton } from "../../models/constants";
 import "./todoListItems.scss";
 
 export const TodoListItems = ({ data, setTasks, tasks, idx }: TodoList) => {
@@ -42,7 +43,7 @@ export const TodoListItems = ({ data, setTasks, tasks, idx }: TodoList) => {
             onClick={() => handleDelete(data)}
             className="todoActionsDelete"
           >
-            -
+            {deleteButton}
           </button>
         </div>
       </div>

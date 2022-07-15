@@ -1,5 +1,9 @@
 import { validations } from "../../utils/validations";
-import { defaultFormInput } from "../../models/constants";
+import {
+  defaultFormInput,
+  addButton,
+  errorMessages,
+} from "../../models/constants";
 import { Results, TextInputs } from "../../models/interfaces";
 import "./textInput.scss";
 
@@ -24,9 +28,9 @@ export const TextInput = ({
   const handleValidate = () => {
     validations
       .input(text)
-      .isNull("Warning - Text input can't be empty")
-      .min(5, "Warning - Text must be more than 5 characters")
-      .max(20, "Warning - Text can't be more than 20 characters");
+      .isNull(errorMessages["isNull"])
+      .min(5, errorMessages["min"])
+      .max(20, errorMessages["max"]);
     if (validations.results && Object.keys(validations.results).length === 0) {
       setError("");
       return true;
@@ -55,7 +59,7 @@ export const TextInput = ({
         placeholder="Enter your task.."
       />
       <button className="todoButton" data-testid="button" onClick={addTask}>
-        Ekle
+        {addButton}
       </button>
     </div>
   );
