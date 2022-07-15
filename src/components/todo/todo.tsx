@@ -11,8 +11,7 @@ export const ToDo = () => {
   const [error, setError] = useState("");
 
   const displayError = () => {
-    if (error) return <p className="todoErrorMessage">{error}</p>;
-    else return;
+    return error && <p className="todoErrorMessage">{error}</p>;
   };
 
   return (

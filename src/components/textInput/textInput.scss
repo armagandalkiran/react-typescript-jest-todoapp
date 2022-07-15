@@ -21,11 +21,9 @@
 .todoButton {
   width: 15%;
   margin-left: 5%;
-  border: none;
-  border-radius: 6px;
   background-color: $secondary;
   color: white;
-  filter: drop-shadow(0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.5));
+  filter: $boxfilter;
   transition: 0.5s ease-in-out;
   &:hover {
     background-color: $light-secondary;

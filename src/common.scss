@@ -5,6 +5,7 @@ $secondary: #2fbf71;
 $light-secondary: #8cd867;
 $typography: #363537;
 $error: #ef2d56;
+$boxfilter: drop-shadow(0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.5));
 
 *,
 *::after,
@@ -28,6 +29,11 @@ p {
   @include respond(phone) {
     font-size: 0.8rem;
   }
+}
+
+button {
+  border: none;
+  border-radius: 6px;
 }
 
 html,

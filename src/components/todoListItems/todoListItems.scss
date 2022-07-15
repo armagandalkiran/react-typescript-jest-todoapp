@@ -30,11 +30,9 @@
   justify-content: space-around;
 }
 
-.todoActionsCheckboxLabel {
-  flex: 1;
-}
-
-.todoActionsCheckbox {
+.todoActionsCheckboxLabel,
+.todoActionsCheckbox,
+.todoActionsDeleteContainer {
   flex: 1;
 }
 
@@ -42,7 +40,6 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  flex: 1;
 }
 
 .todoActionsDelete {
@@ -53,9 +50,8 @@
   align-items: center;
   justify-content: center;
   background-color: $error;
-  border: none;
   color: white;
-  filter: drop-shadow(0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.5));
+  filter: $boxfilter;
   display: none;
   &:hover {
     cursor: pointer;
