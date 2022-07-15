@@ -1,0 +1,63 @@
+@import "../../common.scss";
+
+.todoListItem {
+  width: 100%;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  &:hover {
+    .todoActionsDelete {
+      display: initial;
+    }
+  }
+}
+
+.todoTaskChecked {
+  max-width: 80%;
+  text-decoration: line-through;
+}
+
+.todoTaskNotChecked {
+  max-width: 80%;
+  text-decoration: none;
+}
+
+.todoActionsContainer {
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.todoActionsCheckboxLabel {
+  flex: 1;
+}
+
+.todoActionsCheckbox {
+  flex: 1;
+}
+
+.todoActionsDeleteContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
+}
+
+.todoActionsDelete {
+  // width:20px;
+  height: 13px;
+  width: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $error;
+  border: none;
+  color: white;
+  filter: drop-shadow(0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.5));
+  display: none;
+  &:hover {
+    cursor: pointer;
+  }
+}

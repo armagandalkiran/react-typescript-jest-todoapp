@@ -1,22 +1,20 @@
-import { render, screen, cleanup } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import renderer from "react-test-renderer";
-import { navbarItems } from "../../../models/constants";
 import { Navbar } from "../navbar";
 
 describe("Navbar tests", () => {
-  afterEach(() => {
-    cleanup();
-  });
-
   test("should render navbar component", () => {
     render(<Navbar />);
-    const navbarElement = screen.getByTestId("navbar");
-    const navbarTitleElement = screen.getByTestId("navbarTitle");
-    const navbarDescriptionElement = screen.getByTestId("navbarDescription");
-    expect(navbarElement).toBeInTheDocument();
-    expect(navbarTitleElement).toHaveTextContent(navbarItems["title"]);
+    const navbarTitleElement = screen.getByText("My ToDo List", {
+      exact: false,
+    });
+    const navbarDescriptionElement = screen.getByText(
+      "welcome to todolist with typescript and jest",
+      { exact: false }
+    );
+    expect(navbarTitleElement).toHaveTextContent(/My ToDo List/i);
     expect(navbarDescriptionElement).toHaveTextContent(
-      navbarItems["description"]
+      /welcome to todolist with typescript and jest/i
     );
   });
 

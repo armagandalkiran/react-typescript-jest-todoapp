@@ -8,16 +8,35 @@ export interface ToDoItems {
   completed: boolean;
 }
 
+export interface TodoList {
+  data: ToDoItems;
+  tasks: ToDoItems[];
+  setTasks: (value: ToDoItems[]) => void;
+  idx:number;
+}
+
+export interface TextInputs {
+  text: string;
+  setText: (value: string) => void;
+  setTasks: (
+    value: ToDoItems[] | ((prevVar: ToDoItems[]) => ToDoItems[])
+  ) => void;
+  setError: (value: string) => void;
+}
+
 export interface ResultItem {
-  status:boolean,
-  errorMessage:string
+  errorMessage: string;
 }
 
 export interface Results {
-  [key:string] : ResultItem;
+  [key: string]: ResultItem;
 }
 
 export interface Validations {
+  input: (text: string) => Validations;
+  isNull: (errorMessage: string) => Validations;
+  min: (number: number, errorMessage: string) => Validations;
+  max: (number: number, errorMessage: string) => Validations;
   results?: Results;
-  isNull: (text: string, errorMessage: string) => boolean;
+  testedValue: string;
 }

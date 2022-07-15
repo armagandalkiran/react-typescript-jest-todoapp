@@ -1,18 +1,15 @@
 @import "../../common.scss";
 
-.navbarContainer{
-    padding:20px;
-    text-align: center;
-    background-color: $primary;
+.navbarContainer {
+  padding: 20px;
+  text-align: center;
+  background-color: $primary;
 }
 
-.navbarTitle{
-    color: $typography;
+.navbarTitle {
+  color: $typography;
 }
 
-.navbarDescription{
-    color: $typography;
-    // @include respond(phone){
-    //     color:red;
-    // }
+.navbarDescription {
+  color: $typography;
 }

@@ -3,17 +3,14 @@
 exports[`Navbar tests matches snapshot 1`] = `
 <nav
   className="navbarContainer"
-  data-testid="navbar"
 >
   <h1
     className="navbarTitle"
-    data-testid="navbarTitle"
   >
-    My ToDo list
+    My ToDo List
   </h1>
   <p
     className="navbarDescription"
-    data-testid="navbarDescription"
   >
     welcome to todolist with typescript and jest
   </p>
