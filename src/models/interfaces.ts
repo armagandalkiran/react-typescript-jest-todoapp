@@ -12,7 +12,7 @@ export interface TodoList {
   data: ToDoItems;
   tasks: ToDoItems[];
   setTasks: (value: ToDoItems[]) => void;
-  idx:number;
+  idx: number;
 }
 
 export interface TextInputs {
@@ -39,4 +39,8 @@ export interface Validations {
   max: (number: number, errorMessage: string) => Validations;
   results?: Results;
   testedValue: string;
+}
+
+export interface ErrorMessages {
+  [key: string]: string;
 }

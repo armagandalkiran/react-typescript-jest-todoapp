@@ -1,5 +1,5 @@
 import { ToDoItems, TodoList } from "../../models/interfaces";
-import { deleteButton } from "../../models/constants";
+import { deleteButton, alertMessage } from "../../models/constants";
 import "./todoListItems.scss";
 
 export const TodoListItems = ({ data, setTasks, tasks, idx }: TodoList) => {
@@ -15,7 +15,7 @@ export const TodoListItems = ({ data, setTasks, tasks, idx }: TodoList) => {
     if (data.completed) {
       setTasks(tasks.filter((task) => task !== data));
     } else {
-      alert("You should complete your task first !");
+      alert(alertMessage);
     }
   };
   return (
