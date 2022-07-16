@@ -1,8 +1,8 @@
 import { NavbarItems, ToDoItems, ErrorMessages } from "./interfaces";
 
 export const navbarItems: NavbarItems = {
-  title: "My ToDo List",
-  description: "welcome to todolist with typescript and jest",
+  title: "Armagan's ToDo Project",
+  description: "Purpose on this project to learn how react-testing-library and jest work",
 };
 
 export const defaultFormInput: string = "";
@@ -14,7 +14,6 @@ export const defaultValues: ToDoItems[] = [
 ];
 
 export const addButton: string = "Ekle";
-export const deleteButton: string = "-";
 
 export const errorMessages: ErrorMessages = {
   isNull: "Warning - Text input can't be empty",

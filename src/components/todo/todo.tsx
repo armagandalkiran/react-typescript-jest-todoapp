@@ -2,7 +2,6 @@ import { useState } from "react";
 import { defaultValues } from "../../models/constants";
 import { TodoListItems } from "../todoListItems";
 import { TextInput } from "../textInput";
-
 import "./todo.scss";
 
 export const ToDo = () => {

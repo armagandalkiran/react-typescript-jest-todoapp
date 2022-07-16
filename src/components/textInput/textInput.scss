@@ -2,13 +2,18 @@
 
 .todoEntryWrapper {
   width: 100%;
+  min-height: 70px;
   display: flex;
+  padding:1rem 0;
+  
 }
 
 .todoInput {
   padding: 10px;
   width: 80%;
-  border: 1px solid $typography;
+  border: none;
+  border-radius:6px;
+  filter:$boxfilter;
   &:focus {
     outline: none !important;
     border: 1px solid $typography;
@@ -20,11 +25,11 @@
 
 .todoButton {
   width: 15%;
-  margin-left: 5%;
+  margin-left: auto;
   background-color: $secondary;
   color: white;
   filter: $boxfilter;
-  transition: 0.5s ease-in-out;
+  transition: 0.3s;
   &:hover {
     background-color: $light-secondary;
     cursor: pointer;

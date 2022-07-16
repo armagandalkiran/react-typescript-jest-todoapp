@@ -44,6 +44,7 @@
   },
   "devDependencies": {
     "@types/react-test-renderer": "^18.0.0",
+    "jest-watch-typeahead": "^0.6.5",
     "sass": "^1.53.0"
   }
 }

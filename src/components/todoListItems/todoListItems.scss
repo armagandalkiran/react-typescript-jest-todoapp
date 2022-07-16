@@ -30,7 +30,6 @@
   justify-content: space-around;
 }
 
-.todoActionsCheckboxLabel,
 .todoActionsCheckbox,
 .todoActionsDeleteContainer {
   flex: 1;
@@ -43,15 +42,12 @@
 }
 
 .todoActionsDelete {
-  // width:20px;
-  height: 13px;
-  width: 13px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: $error;
+  width:20px;
+  @include respond(phone){
+    width:15px;
+  }
   color: white;
-  filter: $boxfilter;
+  filter: $error-svg;
   display: none;
   &:hover {
     cursor: pointer;

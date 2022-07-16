@@ -1,5 +1,6 @@
 import { ToDoItems, TodoList } from "../../models/interfaces";
-import { deleteButton, alertMessage } from "../../models/constants";
+import { alertMessage } from "../../models/constants";
+import TrashIcon from "../../assets/trash-icon.svg";
 import "./todoListItems.scss";
 
 export const TodoListItems = ({ data, setTasks, tasks, idx }: TodoList) => {
@@ -28,9 +29,6 @@ export const TodoListItems = ({ data, setTasks, tasks, idx }: TodoList) => {
         {data.task}
       </p>
       <div className="todoActionsContainer">
-        <label className="todoActionsCheckboxLabel" htmlFor="todoCheckbox">
-          {idx + 1}
-        </label>
         <input
           id="todoCheckbox"
           className="todoActionsCheckbox"
@@ -39,12 +37,7 @@ export const TodoListItems = ({ data, setTasks, tasks, idx }: TodoList) => {
           onChange={() => handleCheckbox(data)}
         />
         <div className="todoActionsDeleteContainer">
-          <button
-            onClick={() => handleDelete(data)}
-            className="todoActionsDelete"
-          >
-            {deleteButton}
-          </button>
+          <img className="todoActionsDelete" onClick={() => handleDelete(data)} src={TrashIcon} alt={data.task}></img>
         </div>
       </div>
     </li>
