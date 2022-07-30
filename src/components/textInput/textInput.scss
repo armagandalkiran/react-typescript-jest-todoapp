@@ -1,37 +1,38 @@
 @import "../../common.scss";
 
-.todoEntryWrapper {
-  width: 100%;
-  min-height: 70px;
-  display: flex;
-  padding:1rem 0;
-  
-}
-
-.todoInput {
-  padding: 10px;
-  width: 80%;
-  border: none;
-  border-radius:6px;
-  filter:$boxfilter;
-  &:focus {
-    outline: none !important;
-    border: 1px solid $typography;
+.todo {
+  &__entry--wrapper {
+    width: 100%;
+    min-height: 70px;
+    display: flex;
+    padding: 1rem 0;
   }
-  @include respond(phone) {
-    padding: 5px;
-  }
-}
 
-.todoButton {
-  width: 15%;
-  margin-left: auto;
-  background-color: $secondary;
-  color: white;
-  filter: $boxfilter;
-  transition: 0.3s;
-  &:hover {
-    background-color: $light-secondary;
-    cursor: pointer;
+  &__input {
+    padding: 10px;
+    width: 80%;
+    border: none;
+    border-radius: 6px;
+    filter: $boxfilter;
+    &:focus {
+      outline: none !important;
+      border: 1px solid $typography;
+    }
+    @include respond(phone) {
+      padding: 5px;
+    }
+  }
+
+  &__button {
+    width: 15%;
+    margin-left: auto;
+    background-color: $secondary;
+    color: white;
+    filter: $boxfilter;
+    transition: 0.3s;
+    &:hover {
+      background-color: $light-secondary;
+      cursor: pointer;
+    }
   }
 }

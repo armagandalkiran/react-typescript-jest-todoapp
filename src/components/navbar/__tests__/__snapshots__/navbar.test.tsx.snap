@@ -2,17 +2,17 @@
 
 exports[`Navbar tests matches snapshot 1`] = `
 <nav
-  className="navbarContainer"
+  className="navbar__container"
 >
   <h1
-    className="navbarTitle"
+    className="navbar__title"
   >
-    My ToDo List
+    Armagan's ToDo Project
   </h1>
   <p
-    className="navbarDescription"
+    className="navbar__description"
   >
-    welcome to todolist with typescript and jest
+    Purpose on this project to learn how react-testing-library and jest work
   </p>
 </nav>
 `;

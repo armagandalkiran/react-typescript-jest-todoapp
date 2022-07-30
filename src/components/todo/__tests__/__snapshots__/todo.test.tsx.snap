@@ -2,16 +2,16 @@
 
 exports[`ToDo tests matches snapshot 1`] = `
 <div
-  className="todoContainer"
+  className="todo__container"
 >
   <div
-    className="todoContent"
+    className="todo__content"
   >
     <div
-      className="todoEntryWrapper"
+      className="todo__entry--wrapper"
     >
       <input
-        className="todoInput"
+        className="todo__input"
         data-testid="input"
         onChange={[Function]}
         placeholder="Enter your task.."
@@ -19,7 +19,7 @@ exports[`ToDo tests matches snapshot 1`] = `
         value=""
       />
       <button
-        className="todoButton"
+        className="todo__button"
         data-testid="button"
         onClick={[Function]}
       >
@@ -28,113 +28,95 @@ exports[`ToDo tests matches snapshot 1`] = `
     </div>
     <div />
     <ul
-      className="todoListContainer"
+      className="todo__list--container"
     >
       <li
-        className="todoListItem"
+        className="todo__list--item"
       >
         <p
-          className="todoTaskChecked"
+          className="todo__task--checked"
         >
           default 1
         </p>
         <div
-          className="todoActionsContainer"
+          className="todo__actions--container"
         >
-          <label
-            className="todoActionsCheckboxLabel"
-            htmlFor="todoCheckbox"
-          >
-            1
-          </label>
           <input
             checked={true}
-            className="todoActionsCheckbox"
+            className="todo__actions--checkbox"
             id="todoCheckbox"
             onChange={[Function]}
             type="checkbox"
           />
           <div
-            className="todoActionsDeleteContainer"
+            className="todo__actions--deleteContainer"
           >
-            <button
-              className="todoActionsDelete"
+            <img
+              alt="default 1"
+              className="todo__actions--delete"
               onClick={[Function]}
-            >
-              -
-            </button>
+              src="trash-icon.svg"
+            />
           </div>
         </div>
       </li>
       <li
-        className="todoListItem"
+        className="todo__list--item"
       >
         <p
-          className="todoTaskNotChecked"
+          className="todo__task--notChecked"
         >
           default 2
         </p>
         <div
-          className="todoActionsContainer"
+          className="todo__actions--container"
         >
-          <label
-            className="todoActionsCheckboxLabel"
-            htmlFor="todoCheckbox"
-          >
-            2
-          </label>
           <input
             checked={false}
-            className="todoActionsCheckbox"
+            className="todo__actions--checkbox"
             id="todoCheckbox"
             onChange={[Function]}
             type="checkbox"
           />
           <div
-            className="todoActionsDeleteContainer"
+            className="todo__actions--deleteContainer"
           >
-            <button
-              className="todoActionsDelete"
+            <img
+              alt="default 2"
+              className="todo__actions--delete"
               onClick={[Function]}
-            >
-              -
-            </button>
+              src="trash-icon.svg"
+            />
           </div>
         </div>
       </li>
       <li
-        className="todoListItem"
+        className="todo__list--item"
       >
         <p
-          className="todoTaskNotChecked"
+          className="todo__task--notChecked"
         >
           default 3
         </p>
         <div
-          className="todoActionsContainer"
+          className="todo__actions--container"
         >
-          <label
-            className="todoActionsCheckboxLabel"
-            htmlFor="todoCheckbox"
-          >
-            3
-          </label>
           <input
             checked={false}
-            className="todoActionsCheckbox"
+            className="todo__actions--checkbox"
             id="todoCheckbox"
             onChange={[Function]}
             type="checkbox"
           />
           <div
-            className="todoActionsDeleteContainer"
+            className="todo__actions--deleteContainer"
           >
-            <button
-              className="todoActionsDelete"
+            <img
+              alt="default 3"
+              className="todo__actions--delete"
               onClick={[Function]}
-            >
-              -
-            </button>
+              src="trash-icon.svg"
+            />
           </div>
         </div>
       </li>

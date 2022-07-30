@@ -20,24 +20,29 @@ export const TodoListItems = ({ data, setTasks, tasks, idx }: TodoList) => {
     }
   };
   return (
-    <li className="todoListItem">
+    <li className="todo__list--item">
       <p
         className={`${
-          data.completed ? "todoTaskChecked" : "todoTaskNotChecked"
+          data.completed ? "todo__task--checked" : "todo__task--notChecked"
         }`}
       >
         {data.task}
       </p>
-      <div className="todoActionsContainer">
+      <div className="todo__actions--container">
         <input
           id="todoCheckbox"
-          className="todoActionsCheckbox"
+          className="todo__actions--checkbox"
           type="checkbox"
           checked={data.completed}
           onChange={() => handleCheckbox(data)}
         />
-        <div className="todoActionsDeleteContainer">
-          <img className="todoActionsDelete" onClick={() => handleDelete(data)} src={TrashIcon} alt={data.task}></img>
+        <div className="todo__actions--deleteContainer">
+          <img
+            className="todo__actions--delete"
+            onClick={() => handleDelete(data)}
+            src={TrashIcon}
+            alt={data.task}
+          ></img>
         </div>
       </div>
     </li>
