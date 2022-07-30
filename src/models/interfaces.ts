@@ -45,6 +45,11 @@ export interface ErrorMessages {
   [key: string]: string;
 }
 
-export interface Alert{
-  type:string;
+export interface Alert {
+  type: string;
+}
+
+export interface ServiceTodo {
+  constructor: Function;
+  getTodos: Function;
 }

@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { TodoProvider } from "../../providers/todoProvider";
+import { TodoService } from "../../services/todoService";
 import { defaultValues } from "../../models/constants";
 import { TodoListItems } from "../todoListItems";
 import { TextInput } from "../textInput";
@@ -8,6 +10,16 @@ export const ToDo = () => {
   const [text, setText] = useState("");
   const [tasks, setTasks] = useState(defaultValues);
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    const getValues = async () => {
+      const todoProvider = new TodoProvider();
+      const todoService = new TodoService(todoProvider);
+      const result = await todoService.getModifiedTodos();
+      setTasks(result);
+    };
+    getValues();
+  }, []);
 
   const displayError = () => {
     return error && <p className="todo__error--message">{error}</p>;
