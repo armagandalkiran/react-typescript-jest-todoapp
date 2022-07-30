@@ -1,4 +1,4 @@
-import { ServiceTodo } from "../models/interfaces";
+import { ServiceTodo, ToDoItems } from "../models/interfaces";
 
 export class TodoService {
   todoProvider: ServiceTodo;
@@ -8,6 +8,21 @@ export class TodoService {
 
   async getModifiedTodos() {
     const todos = this.todoProvider.getTodos();
-    return todos;
+    return todos ? todos : [];
+  }
+
+  async postModifiedTodos(data: ToDoItems) {
+    const response = this.todoProvider.postTodos(data);
+    return response;
+  }
+
+  async patchModifiedTodos(data: ToDoItems) {
+    const response = this.todoProvider.patchTodos(data);
+    return response;
+  }
+
+  async deleteModifiedTodos(data:ToDoItems){
+    const response = this.todoProvider.deleteTodos(data);
+    return response;
   }
 }

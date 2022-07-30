@@ -2,19 +2,26 @@ import { ToDoItems, TodoList } from "../../models/interfaces";
 import { alertMessage } from "../../models/constants";
 import TrashIcon from "../../assets/trash-icon.svg";
 import "./todoListItems.scss";
+import { TodoProvider } from "../../providers/todoProvider";
+import { TodoService } from "../../services/todoService";
 
-export const TodoListItems = ({ data, setTasks, tasks, idx }: TodoList) => {
+const todoProvider = new TodoProvider();
+const todoService = new TodoService(todoProvider);
+
+export const TodoListItems = ({ data, setTasks, tasks }: TodoList) => {
   const handleCheckbox = (data: ToDoItems) => {
     let items = [...tasks];
     let itemIndex = items.indexOf(data);
     let item = items[itemIndex];
     item.completed = !data.completed;
     setTasks(items);
+    todoService.patchModifiedTodos(data);
   };
 
   const handleDelete = (data: ToDoItems) => {
     if (data.completed) {
       setTasks(tasks.filter((task) => task !== data));
+      todoService.deleteModifiedTodos(data);
     } else {
       alert(alertMessage);
     }

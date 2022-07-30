@@ -1,20 +1,21 @@
 import { useEffect, useState } from "react";
+import { ToDoItems } from "../../models/interfaces";
 import { TodoProvider } from "../../providers/todoProvider";
 import { TodoService } from "../../services/todoService";
-import { defaultValues } from "../../models/constants";
 import { TodoListItems } from "../todoListItems";
 import { TextInput } from "../textInput";
 import "./todo.scss";
 
+const todoProvider = new TodoProvider();
+const todoService = new TodoService(todoProvider);
+
 export const ToDo = () => {
   const [text, setText] = useState("");
-  const [tasks, setTasks] = useState(defaultValues);
+  const [tasks, setTasks] = useState<ToDoItems[]>([]);
   const [error, setError] = useState("");
 
   useEffect(() => {
     const getValues = async () => {
-      const todoProvider = new TodoProvider();
-      const todoService = new TodoService(todoProvider);
       const result = await todoService.getModifiedTodos();
       setTasks(result);
     };
@@ -36,10 +37,9 @@ export const ToDo = () => {
         />
         <div>{displayError()}</div>
         <ul className="todo__list--container">
-          {tasks.map((data, idx) => (
+          {tasks.map((data) => (
             <TodoListItems
-              key={idx}
-              idx={idx}
+              key={data._id}
               data={data}
               setTasks={setTasks}
               tasks={tasks}
