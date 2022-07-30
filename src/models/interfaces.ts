@@ -4,6 +4,7 @@ export interface NavbarItems {
 }
 
 export interface ToDoItems {
+  _id?: string;
   task: string;
   completed: boolean;
 }
@@ -12,7 +13,6 @@ export interface TodoList {
   data: ToDoItems;
   tasks: ToDoItems[];
   setTasks: (value: ToDoItems[]) => void;
-  idx: number;
 }
 
 export interface TextInputs {
@@ -52,4 +52,7 @@ export interface Alert {
 export interface ServiceTodo {
   constructor: Function;
   getTodos: Function;
+  postTodos: Function;
+  patchTodos: Function;
+  deleteTodos: Function;
 }

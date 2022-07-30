@@ -6,6 +6,8 @@ import {
 } from "../../models/constants";
 import { Results, TextInputs } from "../../models/interfaces";
 import "./textInput.scss";
+import { TodoProvider } from "../../providers/todoProvider";
+import { TodoService } from "../../services/todoService";
 
 export const TextInput = ({
   text,
@@ -13,6 +15,9 @@ export const TextInput = ({
   setTasks,
   setError,
 }: TextInputs) => {
+  const todoProvider = new TodoProvider();
+  const todoService = new TodoService(todoProvider);
+
   const handleError = (results: object) => {
     for (const key of Object.keys(results)) {
       setError((results as Results)[key].errorMessage);
@@ -40,11 +45,12 @@ export const TextInput = ({
     }
   };
 
-  const addTask = () => {
+  const addTask = async () => {
     const validInput = handleValidate();
     if (validInput) {
       setTasks((prev) => [...prev, { task: text, completed: false }]);
       setText(defaultFormInput);
+      await todoService.postModifiedTodos({ task: text, completed: false });
     }
   };
 

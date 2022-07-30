@@ -1,26 +1,23 @@
-import { TodoProvider } from "./todoProvider";
-import axios from "axios";
+import { TodoService } from "./todoService";
+import { TodoProvider } from "../providers/todoProvider";
 
-jest.mock("axios");
-const mockedAxios = axios as jest.Mocked<typeof axios>;
-
-describe("TodoProvider", () => {
+describe("TodoService", () => {
   it("should return todos", async () => {
     const todoProvider = new TodoProvider();
-    mockedAxios.get.mockImplementation(() => {
-      return Promise.resolve({
-        data: [
-          {
-            _id: 1,
-            completed: true,
-            createdAt: "2022-02-28T21:03:35.510Z",
-            updatedAt: "2022-03-01T16:44:02.973Z",
-            task: "deneme",
-          },
-        ],
-      });
+    const mockedGetTodos = jest.spyOn(todoProvider, "getTodos");
+    mockedGetTodos.mockImplementation(() => {
+      return Promise.resolve([
+        {
+          _id: 1,
+          completed: true,
+          createdAt: "2022-02-28T21:03:35.510Z",
+          updatedAt: "2022-03-01T16:44:02.973Z",
+          task: "deneme",
+        },
+      ]);
     });
-    expect(await todoProvider.getTodos()).toEqual([
+    const todoService = new TodoService(todoProvider);
+    expect(await todoService.getModifiedTodos()).toEqual([
       {
         _id: 1,
         completed: true,
@@ -31,53 +28,44 @@ describe("TodoProvider", () => {
     ]);
   });
 
-  it("should return error", async () => {
+  it("should return empty array if there is no todos", async () => {
     const todoProvider = new TodoProvider();
-    mockedAxios.get.mockImplementation(() => {
-      return Promise.reject("Network error");
+    const mockedGetTodos = jest.spyOn(todoProvider, "getTodos");
+    mockedGetTodos.mockImplementation(() => {
+      return Promise.resolve([]);
     });
-    expect(await todoProvider.getTodos()).toBe("Network error");
+    const todoService = new TodoService(todoProvider);
+    expect(await todoService.getModifiedTodos()).toEqual([]);
   });
 
   it("should post todos", async () => {
     const todoProvider = new TodoProvider();
-    mockedAxios.post.mockImplementation(() => {
-      return Promise.resolve({
-        status: 200,
-      });
+    const mockedPostTodos = jest.spyOn(todoProvider, "postTodos");
+    mockedPostTodos.mockImplementation(() => {
+      return Promise.resolve({ status: 200 });
     });
     expect(
       await todoProvider.postTodos({ task: "123456", completed: false })
-    ).toBe(200);
-  });
-
-  it("should return error if there is issue on post", async () => {
-    const todoProvider = new TodoProvider();
-    mockedAxios.post.mockImplementation(() => {
-      return Promise.reject({
-        status: 500,
-      });
-    });
-    expect(
-      await todoProvider.postTodos({ task: "123", completed: false })
-    ).toEqual({ status: 500 });
+    ).toEqual({ status: 200 });
   });
 
   it("should patch todos", async () => {
     const todoProvider = new TodoProvider();
-    mockedAxios.patch.mockImplementation(() => {
+    const mockedPatchTodos = jest.spyOn(todoProvider, "patchTodos");
+    mockedPatchTodos.mockImplementation(() => {
       return Promise.resolve({
         status: 200,
       });
     });
     expect(
       await todoProvider.patchTodos({ task: "123456", completed: true })
-    ).toEqual(200);
+    ).toEqual({"status":200});
   });
 
   it("should return error if there is issue on patch", async () => {
     const todoProvider = new TodoProvider();
-    mockedAxios.patch.mockImplementation(() => {
+    const mockedPatchTodos = jest.spyOn(todoProvider, "patchTodos");
+    mockedPatchTodos.mockImplementation(() => {
       return Promise.reject({
         status: 500,
       });
@@ -89,7 +77,8 @@ describe("TodoProvider", () => {
 
   it("should delete todos", async () => {
     const todoProvider = new TodoProvider();
-    mockedAxios.delete.mockImplementation(() => {
+    const mockedDeleteTodos = jest.spyOn(todoProvider, "deleteTodos");
+    mockedDeleteTodos.mockImplementation(() => {
       return Promise.resolve({
         status: 200,
       });
@@ -100,12 +89,13 @@ describe("TodoProvider", () => {
         task: "123456",
         completed: true,
       })
-    ).toEqual(200);
+    ).toEqual({"status":200});
   });
 
   it("should return error if there is issue on delete", async () => {
     const todoProvider = new TodoProvider();
-    mockedAxios.delete.mockImplementation(() => {
+    const mockedDeleteTodos = jest.spyOn(todoProvider, "deleteTodos");
+    mockedDeleteTodos.mockImplementation(() => {
       return Promise.reject({
         status: 500,
       });
