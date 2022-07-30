@@ -10,12 +10,12 @@ export const ToDo = () => {
   const [error, setError] = useState("");
 
   const displayError = () => {
-    return error && <p className="todoErrorMessage">{error}</p>;
+    return error && <p className="todo__error--message">{error}</p>;
   };
 
   return (
-    <div className="todoContainer">
-      <div className="todoContent">
+    <div className="todo__container">
+      <div className="todo__content">
         <TextInput
           text={text}
           setText={setText}
@@ -23,7 +23,7 @@ export const ToDo = () => {
           setError={setError}
         />
         <div>{displayError()}</div>
-        <ul className="todoListContainer">
+        <ul className="todo__list--container">
           {tasks.map((data, idx) => (
             <TodoListItems
               key={idx}

@@ -1,55 +1,61 @@
 @import "../../common.scss";
 
-.todoListItem {
-  width: 100%;
-  padding: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  &:hover {
-    .todoActionsDelete {
-      display: initial;
+.todo {
+  &__list--item {
+    width: 100%;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &:hover {
+      .todo__actions--delete {
+        display: initial;
+      }
     }
   }
-}
 
-.todoTaskChecked {
-  max-width: 80%;
-  text-decoration: line-through;
-}
-
-.todoTaskNotChecked {
-  max-width: 80%;
-  text-decoration: none;
-}
-
-.todoActionsContainer {
-  width: 20%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.todoActionsCheckbox,
-.todoActionsDeleteContainer {
-  flex: 1;
-}
-
-.todoActionsDeleteContainer {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
-
-.todoActionsDelete {
-  width:20px;
-  @include respond(phone){
-    width:15px;
+  &__task--checked {
+    max-width: 80%;
+    text-decoration: line-through;
   }
-  color: white;
-  filter: $error-svg;
-  display: none;
-  &:hover {
-    cursor: pointer;
+
+  &__task--notChecked {
+    max-width: 80%;
+    text-decoration: none;
+  }
+
+  &__actions--container {
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  &__actions--checkbox {
+    flex: 1;
+  }
+
+  &__actions--deleteContainer {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    max-width: 20px;
+    max-height: 20px;
+    @include respond(phone) {
+      max-width: 15px;
+      max-height: 15px;
+    }
+  }
+
+  &__actions--delete {
+    color: white;
+    width: 100%;
+    height: 100%;
+    filter: $error-svg;
+    display: none;
+    &:hover {
+      cursor: pointer;
+    }
   }
 }

@@ -49,16 +49,16 @@ export const TextInput = ({
   };
 
   return (
-    <div className="todoEntryWrapper">
+    <div className="todo__entry--wrapper">
       <input
         type="text"
-        className="todoInput"
+        className="todo__input"
         data-testid="input"
         value={text}
         onChange={(e) => handleChange(e)}
         placeholder="Enter your task.."
       />
-      <button className="todoButton" data-testid="button" onClick={addTask}>
+      <button className="todo__button" data-testid="button" onClick={addTask}>
         {addButton}
       </button>
     </div>

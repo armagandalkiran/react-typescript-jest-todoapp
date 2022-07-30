@@ -1,35 +1,37 @@
 @import "../../common.scss";
 
-.todoContainer {
-  padding: 20px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.todoContent {
-  width: 60%;
-  @include respond(phone) {
-    width: 95%;
+.todo {
+  &__container {
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-}
 
-.todoErrorMessage {
-  width: 80%;
-  font-size: 0.9rem;
-  color: $error;
-  @include respond(phone) {
-    font-size: 0.7rem;
+  &__content {
+    width: 60%;
+    @include respond(phone) {
+      width: 95%;
+    }
   }
-}
 
-.todoListContainer {
-  width: 80%;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  @include respond(phone) {
-    padding: 10px 0;
+  &__error--message {
+    width: 80%;
+    font-size: 0.9rem;
+    color: $error;
+    @include respond(phone) {
+      font-size: 0.7rem;
+    }
+  }
+
+  &__list--container {
+    width: 80%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    @include respond(phone) {
+      padding: 10px 0;
+    }
   }
 }
