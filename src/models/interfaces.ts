@@ -7,6 +7,7 @@ export interface ToDoItems {
   _id?: string;
   task: string;
   completed: boolean;
+  createdAt?: Date;
 }
 
 export interface TodoList {

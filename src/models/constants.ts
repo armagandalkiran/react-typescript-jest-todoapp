@@ -2,12 +2,13 @@ import { NavbarItems, ErrorMessages } from "./interfaces";
 
 export const navbarItems: NavbarItems = {
   title: "Armagan's ToDo Project",
-  description: "Purpose on this project to learn how react-testing-library and jest work",
+  description:
+    "Purpose on this project to learn how react-testing-library and jest work",
 };
 
 export const defaultFormInput: string = "";
 
-export const addButton: string = "Ekle";
+export const addButton: string = "Add";
 
 export const errorMessages: ErrorMessages = {
   isNull: "Warning - Text input can't be empty",

@@ -27,26 +27,32 @@ export const ToDo = () => {
   };
 
   return (
-    <div className="todo__container">
-      <div className="todo__content">
-        <TextInput
-          text={text}
-          setText={setText}
-          setTasks={setTasks}
-          setError={setError}
-        />
-        <div>{displayError()}</div>
-        <ul className="todo__list--container">
-          {tasks.map((data) => (
-            <TodoListItems
-              key={data._id}
-              data={data}
-              setTasks={setTasks}
-              tasks={tasks}
-            />
-          ))}
-        </ul>
+    <section className="todo__section">
+      <div className="todo__container">
+        <div className="todo__content">
+          <TextInput
+            text={text}
+            setText={setText}
+            setTasks={setTasks}
+            setError={setError}
+          />
+          <div>{displayError()}</div>
+          {tasks.length ? (
+            <ul className="todo__list--container">
+              {tasks.map((data) => (
+                <TodoListItems
+                  key={data._id}
+                  data={data}
+                  setTasks={setTasks}
+                  tasks={tasks}
+                />
+              ))}
+            </ul>
+          ) : (
+            <p>Start by adding task, there is no task to show</p>
+          )}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };

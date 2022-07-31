@@ -48,25 +48,27 @@ export const TextInput = ({
   const addTask = async () => {
     const validInput = handleValidate();
     if (validInput) {
-      setTasks((prev) => [...prev, { task: text, completed: false }]);
+      setTasks((prev) => [{ task: text, completed: false }, ...prev]);
       setText(defaultFormInput);
       await todoService.postModifiedTodos({ task: text, completed: false });
     }
   };
 
   return (
-    <div className="todo__entry--wrapper">
-      <input
-        type="text"
-        className="todo__input"
-        data-testid="input"
-        value={text}
-        onChange={(e) => handleChange(e)}
-        placeholder="Enter your task.."
-      />
-      <button className="todo__button" data-testid="button" onClick={addTask}>
-        {addButton}
-      </button>
-    </div>
+    <section className="todo__entry--section">
+      <div className="todo__entry--wrapper">
+        <input
+          type="text"
+          className="todo__input"
+          data-testid="input"
+          value={text}
+          onChange={(e) => handleChange(e)}
+          placeholder="Enter your task.."
+        />
+        <button className="todo__button" data-testid="button" onClick={addTask}>
+          {addButton}
+        </button>
+      </div>
+    </section>
   );
 };

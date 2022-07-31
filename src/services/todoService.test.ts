@@ -32,7 +32,7 @@ describe("TodoService", () => {
     const todoProvider = new TodoProvider();
     const mockedGetTodos = jest.spyOn(todoProvider, "getTodos");
     mockedGetTodos.mockImplementation(() => {
-      return Promise.resolve([]);
+      return Promise.resolve();
     });
     const todoService = new TodoService(todoProvider);
     expect(await todoService.getModifiedTodos()).toEqual([]);
@@ -40,17 +40,19 @@ describe("TodoService", () => {
 
   it("should post todos", async () => {
     const todoProvider = new TodoProvider();
+    const todoService = new TodoService(todoProvider);
     const mockedPostTodos = jest.spyOn(todoProvider, "postTodos");
     mockedPostTodos.mockImplementation(() => {
       return Promise.resolve({ status: 200 });
     });
     expect(
-      await todoProvider.postTodos({ task: "123456", completed: false })
+      await todoService.postModifiedTodos({ task: "123456", completed: false })
     ).toEqual({ status: 200 });
   });
 
   it("should patch todos", async () => {
     const todoProvider = new TodoProvider();
+    const todoService = new TodoService(todoProvider);
     const mockedPatchTodos = jest.spyOn(todoProvider, "patchTodos");
     mockedPatchTodos.mockImplementation(() => {
       return Promise.resolve({
@@ -58,25 +60,13 @@ describe("TodoService", () => {
       });
     });
     expect(
-      await todoProvider.patchTodos({ task: "123456", completed: true })
-    ).toEqual({"status":200});
-  });
-
-  it("should return error if there is issue on patch", async () => {
-    const todoProvider = new TodoProvider();
-    const mockedPatchTodos = jest.spyOn(todoProvider, "patchTodos");
-    mockedPatchTodos.mockImplementation(() => {
-      return Promise.reject({
-        status: 500,
-      });
-    });
-    expect(
-      await todoProvider.patchTodos({ task: "123", completed: false })
-    ).toEqual({ status: 500 });
+      await todoService.patchModifiedTodos({ task: "123456", completed: true })
+    ).toEqual({ status: 200 });
   });
 
   it("should delete todos", async () => {
     const todoProvider = new TodoProvider();
+    const todoService = new TodoService(todoProvider);
     const mockedDeleteTodos = jest.spyOn(todoProvider, "deleteTodos");
     mockedDeleteTodos.mockImplementation(() => {
       return Promise.resolve({
@@ -84,28 +74,11 @@ describe("TodoService", () => {
       });
     });
     expect(
-      await todoProvider.deleteTodos({
+      await todoService.deleteModifiedTodos({
         _id: "123",
         task: "123456",
         completed: true,
       })
-    ).toEqual({"status":200});
-  });
-
-  it("should return error if there is issue on delete", async () => {
-    const todoProvider = new TodoProvider();
-    const mockedDeleteTodos = jest.spyOn(todoProvider, "deleteTodos");
-    mockedDeleteTodos.mockImplementation(() => {
-      return Promise.reject({
-        status: 500,
-      });
-    });
-    expect(
-      await todoProvider.deleteTodos({
-        _id: "123",
-        task: "123456",
-        completed: true,
-      })
-    ).toEqual({ status: 500 });
+    ).toEqual({ status: 200 });
   });
 });

@@ -1,18 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Navbar tests matches snapshot 1`] = `
-<nav
-  className="navbar__container"
+<section
+  className="navbar__section"
 >
-  <h1
-    className="navbar__title"
+  <nav
+    className="navbar__container"
   >
-    Armagan's ToDo Project
-  </h1>
-  <p
-    className="navbar__description"
-  >
-    Purpose on this project to learn how react-testing-library and jest work
-  </p>
-</nav>
+    <h1
+      className="navbar__title"
+    >
+      Armagan's ToDo Project
+    </h1>
+    <p
+      className="navbar__description"
+    >
+      Purpose on this project to learn how react-testing-library and jest work
+    </p>
+  </nav>
+</section>
 `;

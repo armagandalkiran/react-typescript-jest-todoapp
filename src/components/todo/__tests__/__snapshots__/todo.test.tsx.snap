@@ -1,35 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ToDo tests matches snapshot 1`] = `
-<div
-  className="todo__container"
+<section
+  className="todo__section"
 >
   <div
-    className="todo__content"
+    className="todo__container"
   >
     <div
-      className="todo__entry--wrapper"
+      className="todo__content"
     >
-      <input
-        className="todo__input"
-        data-testid="input"
-        onChange={[Function]}
-        placeholder="Enter your task.."
-        type="text"
-        value=""
-      />
-      <button
-        className="todo__button"
-        data-testid="button"
-        onClick={[Function]}
+      <section
+        className="todo__entry--section"
       >
-        Ekle
-      </button>
+        <div
+          className="todo__entry--wrapper"
+        >
+          <input
+            className="todo__input"
+            data-testid="input"
+            onChange={[Function]}
+            placeholder="Enter your task.."
+            type="text"
+            value=""
+          />
+          <button
+            className="todo__button"
+            data-testid="button"
+            onClick={[Function]}
+          >
+            Add
+          </button>
+        </div>
+      </section>
+      <div />
+      <p>
+        Start by adding task, there is no task to show
+      </p>
     </div>
-    <div />
-    <ul
-      className="todo__list--container"
-    />
   </div>
-</div>
+</section>
 `;
