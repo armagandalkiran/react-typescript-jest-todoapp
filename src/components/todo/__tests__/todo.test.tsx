@@ -6,7 +6,7 @@ describe("ToDo tests", () => {
   test("initial todo component rendered", () => {
     render(<ToDo />);
     const taskInput = screen.getByRole("textbox");
-    const addButton = screen.getByRole("button", { name: "Ekle" });
+    const addButton = screen.getByRole("button", { name: "Add" });
     // const defaultTasks = screen.getAllByText(/^default/);
     // expect(defaultTasks.length).toEqual(3);
     expect(taskInput).toBeInTheDocument();

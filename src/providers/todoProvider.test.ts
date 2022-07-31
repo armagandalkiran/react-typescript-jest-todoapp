@@ -48,7 +48,7 @@ describe("TodoProvider", () => {
     });
     expect(
       await todoProvider.postTodos({ task: "123456", completed: false })
-    ).toBe(200);
+    ).toEqual({ status: 200 });
   });
 
   it("should return error if there is issue on post", async () => {

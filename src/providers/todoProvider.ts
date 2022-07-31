@@ -2,7 +2,6 @@ import { ToDoItems } from "../models/interfaces";
 import axios from "axios";
 
 export class TodoProvider {
-
   async getTodos() {
     try {
       const result = await axios.get(
@@ -20,13 +19,13 @@ export class TodoProvider {
         "https://vast-dusk-47383.herokuapp.com/todos",
         data
       );
-      return response.status;
+      return response;
     } catch (err) {
       return err;
     }
   }
 
-  async patchTodos(data:ToDoItems) {
+  async patchTodos(data: ToDoItems) {
     try {
       const response = await axios.patch(
         `https://vast-dusk-47383.herokuapp.com/todos/${data._id}`,
@@ -38,10 +37,11 @@ export class TodoProvider {
     }
   }
 
-  async deleteTodos(data:ToDoItems){
+  async deleteTodos(data: ToDoItems) {
     try {
       const response = await axios.delete(
-        `https://vast-dusk-47383.herokuapp.com/todos/${data._id}`);
+        `https://vast-dusk-47383.herokuapp.com/todos/${data._id}`
+      );
       return response.status;
     } catch (err) {
       return err;

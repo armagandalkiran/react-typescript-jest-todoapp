@@ -1,16 +1,18 @@
 @import "../../common.scss";
 
-.navbar {
-  &__container {
-    padding: 20px;
-    text-align: center;
-    background-color: $primary;
-    filter: $boxfilter;
-  }
-  &__title {
-    color: $typography;
-  }
-  &__description {
-    color: $typography;
+.navbar__section {
+  .navbar {
+    &__container {
+      padding: 20px;
+      text-align: center;
+      background-color: $primary;
+      filter: $boxfilter;
+    }
+    &__title {
+      color: $typography;
+    }
+    &__description {
+      color: $typography;
+    }
   }
 }
